@@ -12,7 +12,6 @@ interface WishState {
     wishList : IWish[],
     filttext: string
     setWish:(wish:IWish) => void;
-    setwishList:(wish:IWish) => void;
     setfilttext:(item:string) => void;
 
 }
@@ -29,9 +28,6 @@ export  const useWishStore = create<WishState>()((set) => ({
     setWish:(wish:IWish) => set((state) => ({wish:{
         ...state.wish,...wish
     }})),
-    setwishList:(wish:IWish) => set((state) => ({wishList:[
-        {...state.wish},{...wish}
-    ]})),
     setfilttext:(item)=>set(() => ({filttext:item}))
 
 }))

@@ -55,6 +55,7 @@ const EditButton = ({ list }: { list: IWish }) => {
             router.refresh()
             closeDialog()
             toast({
+                variant:"success",
                 title: `${wishlist.name} update wish`,
                 description: `${wishlist.wishes}`,
             })

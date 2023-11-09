@@ -20,6 +20,7 @@ const DelButton = ({ list }: { list: IWish }) => {
                 .eq('id', list.id)
             router.refresh()
             toast({
+                variant:"success",
                 title: `${list.name}'s wish is deleted`,
                 description: `${list.wishes}`,
             })

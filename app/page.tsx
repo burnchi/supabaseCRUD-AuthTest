@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { NewTabble } from '@/components/NewTabble'
-import NewWish from '@/components/NewWish'
+import NewWishButton from '@/components/NewWishButton'
 
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies })
@@ -19,7 +19,7 @@ export default async function Home() {
   return (
     <div className='p-5 space-y-10'>
       <Navbar></Navbar>
-      <NewWish></NewWish>
+      <NewWishButton></NewWishButton>
       <p>Wishes Lists!!</p>
       <NewTabble></NewTabble>
     </div>
