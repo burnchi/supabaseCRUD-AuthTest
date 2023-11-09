@@ -2,9 +2,10 @@ import Navbar from '@/components/Navbar'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { NewTabble } from '@/components/NewTabble'
+import {  NewTable } from '@/components/NewTable'
 import NewWishButton from '@/components/NewWishButton'
 
+export const dynamic = "force-dynamic"
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies })
   // 获取用户的session信息
@@ -21,7 +22,7 @@ export default async function Home() {
       <Navbar></Navbar>
       <NewWishButton></NewWishButton>
       <p>Wishes Lists!!</p>
-      <NewTabble></NewTabble>
+      <NewTable></NewTable>
     </div>
   )
 }

@@ -82,7 +82,7 @@ export default function NewWishButton() {
                 <DialogHeader>
                     <DialogTitle>New Wish</DialogTitle>
                     <DialogDescription>
-                        Fill in your wish here. Click save when you're done.
+                        Fill in your wish here. Click save when you&apos;re done.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">

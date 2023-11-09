@@ -5,7 +5,10 @@ import { cookies } from 'next/headers'
 import NewTableClient from "./NewTableClient"
 
 
-export async function NewTabble() {
+export const dynamic = "force-dynamic"
+
+export async function NewTable() {
+    // 必须用服务器组件，识别某个用户
     const supabase = createServerComponentClient({ cookies })
     let { data: wishlist, error } = await supabase
         .from('wishlist')
@@ -14,7 +17,6 @@ export async function NewTabble() {
     return (
         <>
             <NewTableClient wishlist={wishlist}></NewTableClient>
-        
         </>
     )
 }
