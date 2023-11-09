@@ -11,9 +11,9 @@ const AuthComponent = () => {
     const handleLogin = async() =>{
         await supabase.auth.signInWithOAuth({
             provider: "github",
-            // options : {
-            //     redirectTo : `${location.origin}/auth/callback`
-            // }
+            options : {
+                redirectTo : `${location.origin}/auth/callback`
+            }
         })
     }
 
