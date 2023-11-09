@@ -8,10 +8,13 @@ const Navbar = () => {
     const supabase = createClientComponentClient()
     const router = useRouter()
     const path = usePathname()
+
+    // 将其从浏览器会话和 localStorage 中的任何对象中删除
     const handleLogout =async () => {
         await supabase.auth.signOut();
         router.refresh()
     }
+
   return (
     <div className=' flex justify-between items-center'>
         <h1 className='text-xl'>Wishes Center</h1>

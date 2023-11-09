@@ -6,12 +6,26 @@ import React from 'react'
 
 const AuthComponent = () => {
     const supabase = createClientComponentClient();
+    console.log()
 
-    const handleLogin = () =>{
-        supabase.auth.signInWithOAuth({
+    const getURL = () => {
+        let url =
+          process?.env?.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
+          process?.env?.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
+          'http://localhost:3000/'
+        // Make sure to include `https://` when not localhost.
+        url = url.includes('http') ? url : `https://${url}`
+        // Make sure to include a trailing `/`.
+        url = url.charAt(url.length - 1) === '/' ? url : `${url}/`
+        // console.log(url)
+        
+        return url
+      }
+    const handleLogin = async() =>{
+        await supabase.auth.signInWithOAuth({
             provider: "github",
             options : {
-                redirectTo : `https://supabase-crud-auth-test.vercel.app/auth/callback`
+                redirectTo : `${getURL()}auth/callback`
             }
         })
     }
